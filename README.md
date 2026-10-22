@@ -124,6 +124,16 @@ Call it solo review; do not imply that automation is another human.
 
 Why: the absence of a reviewer must not become the absence of a release decision.
 
+### 11. Instructor calibration
+
+Use a fixed observer rubric to evaluate technical accuracy, hands-on execution,
+live debugging, audience adaptation, and safety behavior. Record stable signals,
+not classroom prose, and make missing behaviors produce coaching actions rather
+than a passing score.
+
+Why: a train-the-trainer program cannot scale quality if readiness depends on
+one person's undocumented memory of what good looked like.
+
 ## How to use this guide
 
 For a new build:
