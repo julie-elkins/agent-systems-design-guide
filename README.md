@@ -4,6 +4,11 @@ Reusable design patterns for building AI agents, evaluations, technical-content
 systems, MCP servers, and developer tools that can be inspected before they reach
 production.
 
+For the complete family of public design guides and the operational material connected
+to them, start at the [AI Design Guides hub](https://github.com/julie-elkins/ai-design-guides).
+This repository remains the general pattern guide; the hub is the directory, not a copy
+of this content.
+
 This guide sits above the implementation repositories:
 
 - [Agent Assurance Harness](https://github.com/julie-elkins/agent-assurance-harness)
