@@ -207,6 +207,18 @@ For a new build:
 The guide is intentionally not a framework or a scoring system. It is a set of
 design decisions that should remain visible when implementation details change.
 
+## Research design guide
+
+Use the [Research Design Guide for AI Systems](RESEARCH_DESIGN_GUIDE.md) when the
+deliverable is more than an implementation: a pilot, evaluation study, working paper,
+or public research artifact. It explains how to move from a research gap to a
+protocol, negative control, reproducible result, and bounded claim.
+
+The current worked example is the
+[agent reauthorization study](https://github.com/julie-elkins/llm-eval-validity/tree/main/research/agent-reauthorization).
+The executable pilot remains in the
+[Agent Assurance Harness](https://github.com/julie-elkins/agent-assurance-harness).
+
 ## Scope
 
 This public guide contains no credentials, private course content, unpublished exam
