@@ -134,6 +134,33 @@ than a passing score.
 Why: a train-the-trainer program cannot scale quality if readiness depends on
 one person's undocumented memory of what good looked like.
 
+### 12. Transport success is not task success
+
+Record transport status, semantic task outcome, retry count, and bounded usage as
+separate observations. A successful request may still return empty context, an
+incomplete result, or an outcome that requires escalation. A workflow must not report
+success from transport status alone.
+
+Why: dashboards that show only request success can hide the failure that matters to
+the person or system waiting for the task to finish.
+
+What this proves: the workflow recorded and evaluated a declared semantic outcome
+separately from transport success. It does not prove that the semantic outcome is
+correct outside the declared contract.
+
+### 13. Builder--breaker evaluation
+
+Separate the component that proposes or changes a workflow from an independent breaker
+that tries to expose a false pass. Keep evaluator validity as its own evidence
+dimension, and retain the degraded case that the breaker must catch.
+
+Why: an evaluator that shares the builder's assumptions can approve the same failure
+the builder introduced. A second pass is not independent merely because it runs in a
+different function.
+
+What this proves: the known degraded case was caught by the independent evaluation
+path. It does not prove that the breaker will find every future failure.
+
 ## How to use this guide
 
 For a new build:
