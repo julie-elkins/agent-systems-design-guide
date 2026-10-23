@@ -166,6 +166,32 @@ different function.
 What this proves: the known degraded case was caught by the independent evaluation
 path. It does not prove that the breaker will find every future failure.
 
+### 14. Evidence-to-claim discipline
+
+Treat **epistemology** -- what can be justified from evidence -- as part of the system
+design. Separate three states:
+
+- **Observed:** what the trace, test, or evaluation directly recorded;
+- **Inferred:** what those observations support within the declared task, fixture,
+  population, and revision scope; and
+- **Unestablished:** what was not tested or cannot be concluded from the available
+  evidence.
+
+A successful task can establish that one declared run reached one declared outcome. It
+does not, by itself, establish stable behavior under unseen inputs, broad capability,
+or the system's internal state. A blocked tool call can establish that the authorization
+boundary acted. It does not establish that the model was aligned or that the input was
+safe.
+
+Why: a result becomes misleading when an observation is silently promoted into a claim
+with a wider scope than the evidence supports. The remedy is to name the observation,
+the inference, the assumptions that connect them, and the boundary beyond which the
+claim is not established.
+
+What this proves: the review kept observations, scoped inferences, and unresolved
+claims separate. It does not prove hidden state, emergent behavior, or generalization
+outside the tested conditions.
+
 ## How to use this guide
 
 For a new build:
