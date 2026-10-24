@@ -98,7 +98,31 @@ content changes.
 Why: generated content can be useful before it is trustworthy. The workflow must
 retain that distinction.
 
-### 7. Provider-neutral adapter
+### 7. Shared human/agent handoff
+
+When people and agents work on the same Markdown or other editable artifact, keep the
+repository or other canonical source — the authoritative copy — as the place where the
+accepted version lives. Treat the shared document as a review surface, and record:
+
+- the source revision or commit the handoff started from;
+- who owns each section;
+- which sections an agent may edit and which require a person;
+- how competing edits are detected and resolved; and
+- whether a person approved the result before it returns to the canonical source.
+
+Comments and a visually clean document are not approval. The handoff is complete only when
+the reviewed change has been merged back into the canonical source and its revision is
+recorded.
+
+Why: one shared file can remove copy-and-paste drift, but without ownership and revision
+identity an agent can consume an older human edit or overwrite work that was already
+accepted.
+
+What this proves: the workflow made ownership, revision, conflict handling, and approval
+visible for one handoff. It does not prove that the shared document is current, that no
+unseen edit exists, or that the approved content is correct outside the declared review.
+
+### 8. Provider-neutral adapter
 
 Keep the agent contract independent from the model provider. Provider adapters
 translate into the same bounded evidence shape and carry explicit request, token,
@@ -106,14 +130,14 @@ time, and spend ceilings when live execution is permitted.
 
 Why: provider changes should not silently change what counts as safe evidence.
 
-### 8. Self-service path
+### 9. Self-service path
 
 Every reusable workflow needs one command that another person can run, a positive
 example, a failure example, and a statement of what the result does not prove.
 
 Why: a system that only works while its author explains it does not scale quality.
 
-### 9. Feedback-to-revision loop
+### 10. Feedback-to-revision loop
 
 Record safe usage signals and map them to an action such as retain, clarify, revise,
 or retire. Keep the signal separate from the content itself.
@@ -121,7 +145,7 @@ or retire. Keep the signal separate from the content itself.
 Why: scale requires knowing which material is working, where people get stuck, and
 what should stop consuming maintenance time.
 
-### 10. Solo-maintainer delivery path
+### 11. Solo-maintainer delivery path
 
 When there is no second reviewer, use explicit scope, deterministic fixtures,
 negative controls, boundary scans, release evidence, and documented risk acceptance.
@@ -129,7 +153,7 @@ Call it solo review; do not imply that automation is another human.
 
 Why: the absence of a reviewer must not become the absence of a release decision.
 
-### 11. Instructor calibration
+### 12. Instructor calibration
 
 Use a fixed observer rubric to evaluate technical accuracy, hands-on execution,
 live debugging, audience adaptation, and safety behavior. Record stable signals,
@@ -139,7 +163,7 @@ than a passing score.
 Why: a train-the-trainer program cannot scale quality if readiness depends on
 one person's undocumented memory of what good looked like.
 
-### 12. Transport success is not task success
+### 13. Transport success is not task success
 
 Record transport status, semantic task outcome, retry count, and bounded usage as
 separate observations. A successful request may still return empty context, an
@@ -153,7 +177,7 @@ What this proves: the workflow recorded and evaluated a declared semantic outcom
 separately from transport success. It does not prove that the semantic outcome is
 correct outside the declared contract.
 
-### 13. Builder--breaker evaluation
+### 14. Builder--breaker evaluation
 
 Separate the component that proposes or changes a workflow from an independent breaker
 that tries to expose a false pass. Keep evaluator validity as its own evidence
@@ -166,7 +190,7 @@ different function.
 What this proves: the known degraded case was caught by the independent evaluation
 path. It does not prove that the breaker will find every future failure.
 
-### 14. Evidence-to-claim discipline
+### 15. Evidence-to-claim discipline
 
 Treat **epistemology** -- what can be justified from evidence -- as part of the system
 design. Separate three states:
