@@ -216,6 +216,62 @@ What this proves: the review kept observations, scoped inferences, and unresolve
 claims separate. It does not prove hidden state, emergent behavior, or generalization
 outside the tested conditions.
 
+### 16. Decision reasoning as a teachable artifact
+
+Make the reasoning behind a consequential design choice visible beside the code. A
+teachable decision record is not a diary and it is not a claim that one design is
+universally correct. It is a compact path another engineer can follow:
+
+1. the problem and the failure if it is designed badly;
+2. the alternatives considered;
+3. the selected decision;
+4. the official guidance or source evidence considered;
+5. the implementation and verification that followed; and
+6. the cost, limitation, and boundary of the result.
+
+Use the [decision reasoning template](DESIGN_DECISION_TEMPLATE.md). Link each record to
+the relevant implementation, test, runnable example, and authoritative source. Keep
+the learner-facing explanation in plain language, and keep implementation-specific
+details in the repository that actually owns them.
+
+Why: code shows what was built, but a visible decision trail teaches how to reason about
+AI engineering under constraints. It also lets a reviewer distinguish an observed test
+result from a broader claim about production reliability.
+
+What this proves: the author made the design assumptions, alternatives, verification,
+and limits inspectable. It does not prove that the choice is optimal, that every
+official recommendation was followed, or that the result generalizes beyond its tested
+scope.
+
+### 17. Agent-readable repository lifecycle
+
+When an agent works across sessions, make the repository answer five operational
+questions without relying on chat history:
+
+- **Instructions:** Where does a new session start, and which rules must it read?
+- **State:** What is the current task, what is complete, what is blocked, and what
+  decision or handoff must survive the session boundary?
+- **Verification:** Which runnable command produces evidence before the agent may claim
+  completion?
+- **Scope:** What is the one bounded unit of work, what does "done" mean, and which
+  dependencies or exclusions limit it?
+- **Lifecycle:** What must be checked at startup, and what clean handoff must be left
+  before the session ends?
+
+Typical artifacts include `AGENTS.md` or `CLAUDE.md`, a progress or feature-state file,
+a verification entrypoint, and a session-handoff note. These are examples, not required
+filenames: the contract is the visible startup path, state, scope, evidence, and handoff.
+
+Why: an agent that cannot reconstruct the task and its evidence from the repository will
+re-explore, guess, or declare work complete from memory. The cost is repeated work and
+stale decisions being carried into the next session.
+
+What this proves: a fresh session can locate the task, constraints, verification path,
+and next step. The presence of those artifacts is **structural evidence** -- evidence
+that the parts exist. It does not prove that the harness improves agent behavior.
+That stronger claim needs representative before-and-after sessions or controlled replay
+with the same task and explicit outcome measures.
+
 ## How to use this guide
 
 For a new build:
@@ -227,6 +283,12 @@ For a new build:
 5. Keep private or provider-specific material behind an explicit local boundary.
 6. Publish the runnable command and the limitation statement.
 7. Record the decision, alternative, reason, cost if wrong, and decision owner.
+8. Add the decision to the learning path when another engineer could reasonably choose
+   a different design.
+
+For coding-agent work that spans sessions, apply the agent-readable repository lifecycle
+before adding memory, automation, or multi-agent coordination. Add only the artifacts
+needed to make the next session restartable and the completion claim checkable.
 
 The guide is intentionally not a framework or a scoring system. It is a set of
 design decisions that should remain visible when implementation details change.
@@ -242,6 +304,12 @@ The current worked example is the
 [agent reauthorization study](https://github.com/julie-elkins/llm-eval-validity/tree/main/research/agent-reauthorization).
 The executable pilot remains in the
 [Agent Assurance Harness](https://github.com/julie-elkins/agent-assurance-harness).
+
+For a hands-on external curriculum covering repository harnesses, session continuity,
+verification, loops, and graph workflows, see
+[Learn Harness Engineering](https://github.com/walkinglabs/learn-harness-engineering).
+Its structural audit is useful as a checklist, but its score is not behavioral evidence
+that an agent became more reliable.
 
 ## Scope
 

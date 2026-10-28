@@ -9,5 +9,7 @@ This repository contains public design patterns only.
 - Preserve the distinction between a recommendation and human approval.
 - Explain what each pattern proves and what it does not prove.
 - Keep implementation-specific details in the linked implementation repository.
+- Use `DESIGN_DECISION_TEMPLATE.md` for consequential choices and link each record to
+  the implementation, verification, official guidance, and teaching path it supports.
 - Record a non-obvious design choice as: Decided, Instead of, Why, Costs if wrong,
   and Decided by.
