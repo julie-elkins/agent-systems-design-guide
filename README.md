@@ -272,6 +272,34 @@ that the parts exist. It does not prove that the harness improves agent behavior
 That stronger claim needs representative before-and-after sessions or controlled replay
 with the same task and explicit outcome measures.
 
+### 18. Evaluation layers and interaction scope
+
+Evaluate an agent at more than one scope:
+
+- **Deterministic checks** use fixed rules for exact results, schemas, tool selection,
+  parameters, authorization, state, latency, cost, and evidence completeness.
+- **Semantic checks** assess meaning and support, such as groundedness, relevance,
+  completeness, and unsupported claims.
+- **Behavioral checks** assess task completion, refusal, recovery, safety, repeated-run
+  consistency, and user or business outcomes.
+- **Trajectory checks** inspect the sequence of planning, tool calls, intermediate
+  state, retries, and recovery decisions.
+
+Test multi-turn workflows when state or constraints can change across turns. A final
+answer can be plausible even when the agent forgot an earlier restriction, used the
+wrong tool, repeated an action, or claimed completion before the state changed.
+Conversely, a valid trajectory can still produce a bad result when its source evidence
+is incomplete.
+
+Choose the least subjective grader that can answer the question. Validate model-based
+graders against human-reviewed cases, measure disagreement, and keep `not_evaluated`
+separate from `passed`. Interpret scores with the baseline, sample size, uncertainty,
+high-risk slices, repeated-run variation, latency, cost, and user outcomes.
+
+The detailed lifecycle and release reasoning are in
+[Agent Evaluation and Release](AGENT_EVALUATION_AND_RELEASE.md). The operational
+checklist lives in the [Agent Assurance Harness](https://github.com/julie-elkins/agent-assurance-harness/blob/main/AGENT_EVALUATION_CHECKLIST.md).
+
 ## How to use this guide
 
 For a new build:
@@ -289,6 +317,8 @@ For a new build:
 For coding-agent work that spans sessions, apply the agent-readable repository lifecycle
 before adding memory, automation, or multi-agent coordination. Add only the artifacts
 needed to make the next session restartable and the completion claim checkable.
+9. For an agent evaluation, run the [Agent Evaluation and Release](AGENT_EVALUATION_AND_RELEASE.md)
+   lifecycle and complete the [operational checklist](https://github.com/julie-elkins/agent-assurance-harness/blob/main/AGENT_EVALUATION_CHECKLIST.md).
 
 The guide is intentionally not a framework or a scoring system. It is a set of
 design decisions that should remain visible when implementation details change.
