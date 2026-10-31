@@ -47,6 +47,10 @@ as separate dimensions.
 Why: one composite score can make an unsafe result look successful because the task
 answer was plausible.
 
+Use the [evaluation report vocabulary](REPORT_VOCABULARY.md) when those dimensions
+cross repository boundaries. The vocabulary defines meanings, not a mandatory
+report schema.
+
 ### 2. Refusal as a result
 
 Make abstention a structured outcome. An agent should be able to say that evidence
