@@ -60,3 +60,50 @@ Julie Elkins, 2026-10-30.
 
 Start with the lifecycle, choose one high-risk workflow, run the checklist, and use a
 known negative control to verify that the evaluation can catch a false pass.
+
+## Evaluator layers and controlled comparisons
+
+### Decision
+
+Teach evaluator layers explicitly: the agent-as-a-judge may inspect a run's trace and
+result, while the harness-as-a-judge checks trace completeness and declared controls.
+Require controlled comparisons to report correctness, safety, tool-call correctness,
+latency, cost, and user outcomes separately.
+
+### Instead of
+
+Collapse the run into one automated score, treat the judge as ground truth, or let a
+preferred A/B result redefine the release rule after the comparison is visible.
+
+### Why
+
+Final-answer quality can hide an unsafe or incorrect trajectory. Separate dimensions
+make those failures visible, while calibration and abstention keep an automated judge
+from becoming an unreviewed authority.
+
+### Implementation
+
+- [Agent evaluation and release guide](../AGENT_EVALUATION_AND_RELEASE.md)
+- [Agent Assurance Harness checklist](https://github.com/julie-elkins/agent-assurance-harness/blob/main/AGENT_EVALUATION_CHECKLIST.md)
+
+### Verification
+
+Confirm the guide names deterministic trace checks, calibrated semantic grading,
+abstention, separate comparison dimensions, blocking thresholds, and a rerun policy.
+Confirm the harness checklist has evidence rows for evaluator layers and controlled
+variant comparisons.
+
+### Costs if wrong
+
+The guidance could add review work or be mistaken for a requirement to use another
+model. It therefore leaves deterministic checks first, keeps human ownership explicit,
+and permits a result to remain `not_evaluated`.
+
+### What this does not prove
+
+These controls do not prove production quality, safety, or business impact. They make
+the evidence and unresolved uncertainty inspectable for the declared workflow.
+
+### Decided by
+
+Julie Elkins, 2026-10-31.
