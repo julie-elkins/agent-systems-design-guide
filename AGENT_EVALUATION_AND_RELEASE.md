@@ -148,6 +148,21 @@ system, not ground truth. Validate it against human-reviewed examples, inspect
 disagreements, measure false passes and false failures, and define when it must
 abstain.
 
+### Evaluator layers: judge the run, not only the answer
+
+An **agent-as-a-judge** is an evaluator agent that inspects another agent's observed
+trajectory and result. A **harness-as-a-judge** is the surrounding control layer that
+checks whether the trace is complete and whether declared boundaries were respected.
+These are evaluator layers, not replacements for deterministic checks, calibrated
+semantic grading, or accountable human review.
+
+Run deterministic checks first for schemas, tool calls, authorization, required
+evidence, latency, cost, and stop conditions. Use model-based or agent-based grading
+for meaning where exact rules are insufficient, but calibrate it against
+human-reviewed examples and allow `not_evaluated` or abstention. Keep the trace,
+evaluator result, and human decision distinguishable so an automated judge never
+becomes invisible ground truth.
+
 ### Behavioral checks
 
 **Behavioral checks** evaluate what the agent does across an interaction and environment.
@@ -237,6 +252,17 @@ The metric tells the reviewer where to look. The trace, expected state, and comp
 with the baseline explain what happened. A small score movement is not automatically a
 real improvement; it must exceed the declared evaluation variation or be described as
 inconclusive.
+
+### Compare variants across separate dimensions
+
+An **A/B test** is a controlled comparison between a baseline and a candidate variant.
+Report task correctness, safety, tool-call correctness, latency, cost, and user
+outcomes as separate dimensions. A higher answer score does not hide a safety
+regression, incorrect tool use, or a material latency or cost increase.
+
+Define blocking thresholds, the rerun policy, and the conditions for an inconclusive
+result before inspecting the comparison. This prevents the preferred result from
+quietly changing the decision rule after the evidence is visible.
 
 ## 8. Make the release rule explicit
 
