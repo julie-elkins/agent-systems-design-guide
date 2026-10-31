@@ -61,6 +61,13 @@ Separate these outcomes:
 - `not_applicable`: the check does not apply to the declared workflow.
 
 Do not convert `not_evaluated` into `passed`. A missing trace is not a clean trace.
+The shared meanings and cross-repository mapping are defined in
+[Evaluation report vocabulary](REPORT_VOCABULARY.md).
+
+An integration can also be `unavailable` when a provider, framework, or native
+runtime cannot execute in the current environment. Treat required unavailable
+evidence as `not_evaluated` for release purposes; do not report framework
+availability as a quality pass.
 
 ## 2. Build and maintain the test set
 
