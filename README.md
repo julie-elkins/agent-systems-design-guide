@@ -36,6 +36,30 @@ Before adding an agent, tool, server, workflow, or evaluation, state:
 If those answers are not written down, the build is not yet scoped. More code will
 not repair an unclear contract.
 
+## Handling ambiguity
+
+When requirements or evidence are incomplete, start with the decision the system must
+support and the cost of getting it wrong.
+
+Separate:
+
+- what is known;
+- what is missing;
+- what is assumed;
+- what the system may decide automatically; and
+- what requires human review.
+
+Identify which decisions are easy to change and which would be difficult to reverse.
+Then choose the smallest test, review step, or negative control that can reduce the
+most important uncertainty.
+
+The system should represent uncertainty explicitly. If evidence is missing, stale,
+conflicting, or outside the approved boundary, it should refuse, block, or return
+`not_evaluated` with a reason rather than silently producing a confident result.
+
+Record the decision, rejected alternative, reason, verification, cost if wrong, and
+decision owner.
+
 ## Pattern catalog
 
 ### 1. Evidence contract
