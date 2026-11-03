@@ -203,7 +203,55 @@ Check whether:
 A correct final answer can hide a bad trajectory. A correct trajectory can still produce
 a bad final answer when the source data is incomplete. Keep both facts visible.
 
-## 5. Test multi-turn and stateful behavior
+## 5. Diagnose before changing the prompt
+
+When a run fails, classify the likely root cause before editing. A **root-cause
+hypothesis** is a testable explanation for why the observed failure occurred. It may
+point to the model, prompt, skill, environment, tool, code, orchestration, evaluator,
+or data. A prompt change is only one possible intervention. Record at least one
+competing explanation when the evidence is ambiguous.
+
+Use a failure-point replay as a diagnostic filter. A **replay** reruns from the turn
+where the failure occurred while holding earlier history fixed. It is useful for
+testing whether a proposed edit changes the known decision, but it cannot reveal an
+earlier divergence caused by that edit. A promising change must run from the beginning
+on the matched case set before it supports a release decision.
+
+The replay and full run answer different questions:
+
+- Replay: did this local change affect the observed failure?
+- Full run: did the change preserve the earlier path and improve the complete task?
+
+Do not report a replay as full validation. Preserve both results, their revisions, and
+the scope each result supports.
+
+## 6. Compare agent architectures at the task boundary
+
+A **flat agent** completes the workflow in one primary loop. A **multi-agent
+architecture** uses a primary agent plus one or more **subagents**, meaning secondary
+agents that perform specialized work. A **skill** is a reusable instruction and
+workflow bundle that an agent may load on demand. These are design choices, not
+automatic quality improvements.
+
+When comparing a flat path with a multi-agent path, use matched cases and evaluate the
+complete user task. Preserve:
+
+- semantic task outcome;
+- trajectory and handoff evidence;
+- tool and permission correctness;
+- context and state continuity;
+- latency and cost;
+- recovery and stopping behavior;
+- side effects and authorization; and
+- maintenance impact after a model upgrade.
+
+A subagent that performs well in isolation does not prove that the overall agent is
+better. Keep the extra architecture only when it provides a measured benefit, such as
+parallel research, independent verification, or a genuinely different context
+boundary. Re-baseline prompts, skills, tools, and subagents after a model upgrade
+instead of assuming that an older workaround still earns its maintenance cost.
+
+## 7. Test multi-turn and stateful behavior
 
 Single-turn cases are insufficient when the agent must remember constraints, maintain
 state, or act over time.
@@ -224,7 +272,7 @@ can fail even when every isolated response looks reasonable because the agent fo
 an earlier restriction, repeated an action, used stale context, or claimed completion
 before the state change was confirmed.
 
-## 6. Select and validate the grader
+## 8. Select and validate the grader
 
 Use the least subjective grader that can answer the question:
 
@@ -242,7 +290,7 @@ Do not let the same unexamined assumption define the agent, the judge, and the r
 threshold. An independent breaker—a check designed to expose a false pass—should
 challenge at least the highest-risk positive path.
 
-## 7. Interpret metrics as evidence, not verdicts
+## 9. Interpret metrics as evidence, not verdicts
 
 For each reported result, inspect:
 
@@ -271,7 +319,7 @@ Define blocking thresholds, the rerun policy, and the conditions for an inconclu
 result before inspecting the comparison. This prevents the preferred result from
 quietly changing the decision rule after the evidence is visible.
 
-## 8. Make the release rule explicit
+## 10. Make the release rule explicit
 
 Before inspecting the result, write the release contract:
 
@@ -288,7 +336,7 @@ Keep `passed`, `failed`, `blocked`, and `not_evaluated` separate in reports. Hum
 approval may accept a documented residual risk where policy permits, but approval must
 not rewrite missing evidence as a pass.
 
-## 9. Close the production feedback loop
+## 11. Close the production feedback loop
 
 Use this path after release:
 
