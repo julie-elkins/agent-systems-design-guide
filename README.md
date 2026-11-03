@@ -328,6 +328,40 @@ The detailed lifecycle and release reasoning are in
 [Agent Evaluation and Release](AGENT_EVALUATION_AND_RELEASE.md). The operational
 checklist lives in the [Agent Assurance Harness](https://github.com/julie-elkins/agent-assurance-harness/blob/main/AGENT_EVALUATION_CHECKLIST.md).
 
+The [Evaluation Research Checklist](EVALUATION_RESEARCH_CHECKLIST.md) maps
+current benchmark, judge, variance, and agent-interaction research to concrete
+design questions. Use it before expanding a benchmark or treating a score as
+evidence for a release decision.
+
+### 19. Validity before scale: the Agentic Benchmark Checklist principle
+
+Treat **construct validity**—whether an evaluation measures the capability it
+claims to measure—as a gate before increasing benchmark size or declaring a
+ranking. Write down the target decision, the capability being measured, the
+environment and tools available, the reference outcome, the case roles, the
+known sources of dependence or leakage, and the uncertainty that could change
+the decision.
+
+This follows the principle behind the [Agentic Benchmark Checklist (ABC)](https://arxiv.org/abs/2507.02825):
+audit the task setup and reward or scoring design before trusting the number it
+produces.
+
+Do not treat a larger case count as a repair for an unclear task, an
+unreviewed reference, a simulated environment that does not match the target
+setting, or an evaluator whose repeatability has not been measured. Keep
+benchmark results, workflow evidence, and human or user outcomes as separate
+claims.
+
+Why: scale can make a weak measurement look more precise while leaving the
+wrong construct untouched. A smaller, well-bounded study can be more useful
+when it identifies the decision, failure cost, and evidence needed before
+expansion.
+
+What this proves: the evaluation design recorded its target, references,
+environment, and limitations before interpretation. It does not prove that
+the construct is complete, that the sample represents all users, or that a
+benchmark result transfers to production.
+
 ## How to use this guide
 
 For a new build:
