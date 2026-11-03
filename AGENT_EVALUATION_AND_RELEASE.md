@@ -38,6 +38,11 @@ focuses on whether the measurement itself supports the decision.
 The design choice to keep the reasoning here and the operational controls in the
 harness is recorded in the [evaluation and release decision record](decisions/agent-evaluation-and-release.md).
 
+Before building or expanding a benchmark, use the
+[Evaluation Research Checklist](EVALUATION_RESEARCH_CHECKLIST.md). It is a
+research-informed preflight for task setup, reward or scoring rules, environment
+fidelity, judge validity, repeatability, and claim boundaries.
+
 ## 1. Define the decision before the score
 
 Start with the user task and the cost of being wrong.
