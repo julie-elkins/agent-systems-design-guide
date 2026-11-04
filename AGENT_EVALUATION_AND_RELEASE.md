@@ -324,6 +324,42 @@ Define blocking thresholds, the rerun policy, and the conditions for an inconclu
 result before inspecting the comparison. This prevents the preferred result from
 quietly changing the decision rule after the evidence is visible.
 
+### Use evaluation-driven optimization carefully
+
+**Evaluation-driven optimization** means using a declared evaluation to choose
+between candidate changes to an agent, such as a prompt, skill, model setting, tool
+description, policy, or harness component. The evaluation becomes part of the
+development loop, not only a scorecard after a change has already been made.
+
+Before optimizing, make these controls explicit:
+
+- keep tuning cases separate from held-out cases;
+- check grader consistency on fixed evidence;
+- measure ordinary run variation so noise is not mistaken for improvement;
+- confirm remaining headroom, meaning room below the measure's ceiling;
+- change one meaningful factor at a time; and
+- define the accept, reject, and revert rule before viewing the result.
+
+An improvement on tuning cases is a diagnostic signal, not a release decision.
+Keep a candidate only when it also generalizes to held-out cases and does not
+violate a higher-priority safety, authorization, tool-correctness, cost, latency,
+or evidence-completeness rule. If a candidate improves tuning cases but regresses
+held-out or high-risk cases, reject or revert it and preserve the regression as a
+new investigation target.
+
+Do not treat a model-based grader as automatically trustworthy just because an
+optimizer can improve its score. A candidate can overfit the grader's wording,
+blind spots, or calibration set. Keep human-reviewed anchors, independent
+negative controls, and a fresh-case plan after release. Fresh cases test whether
+the change continues to help after the original optimization surface is no longer
+known.
+
+What this pattern proves: the optimization decision is tied to declared data
+roles, evaluator health, separate dimensions, and a reversible action. It does
+not prove that the candidate is globally optimal, that held-out cases represent
+all future traffic, or that a provider's automated optimization workflow is safe
+without human review.
+
 ## 10. Make the release rule explicit
 
 Before inspecting the result, write the release contract:
