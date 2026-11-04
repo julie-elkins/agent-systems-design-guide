@@ -333,6 +333,11 @@ current benchmark, judge, variance, and agent-interaction research to concrete
 design questions. Use it before expanding a benchmark or treating a score as
 evidence for a release decision.
 
+For several eligible candidates, use the
+[constrained multi-objective evaluation decision](decisions/constrained-multi-objective-evaluation.md):
+gate safety, evidence completeness, held-out performance, and repeated-run
+stability first, then expose the quality/cost/latency frontier for human review.
+
 ### 19. Validity before scale: the Agentic Benchmark Checklist principle
 
 Treat **construct validity**—whether an evaluation measures the capability it
