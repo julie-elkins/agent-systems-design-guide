@@ -27,7 +27,8 @@ usable without turning the design guide into an implementation repository.
 
 ## Official guidance considered
 
-- [OpenAI Evals](https://github.com/openai/evals), OpenAI, accessed 2026-10-30.
+- [Codex evaluation guidance](https://developers.openai.com/codex/use-cases/ai-app-evals), OpenAI, accessed 2026-11-05.
+- [Promptfoo](https://github.com/promptfoo/promptfoo), maintained evaluation-runner reference, accessed 2026-11-05.
 - [Trustworthy agents](https://www.anthropic.com/research/trustworthy-agents), Anthropic, accessed 2026-10-30.
 
 ## Implementation
