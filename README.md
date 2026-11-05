@@ -367,6 +367,25 @@ environment, and limitations before interpretation. It does not prove that
 the construct is complete, that the sample represents all users, or that a
 benchmark result transfers to production.
 
+### 20. Stateful memory evaluation
+
+Use [Stateful Memory Evaluation](STATEFUL_MEMORY_EVALUATION.md) when an agent
+reads or writes durable memory, session summaries, user preferences, or
+background-consolidated state.
+
+Compare a baseline with a candidate treatment on fresh and held-out tasks.
+Evaluate memory write correctness, memory read correctness, future task outcome,
+and state safety separately. Include stale, contradictory, cross-tenant,
+unsupported, irrelevant, deletion, and rollback negative controls.
+
+Why: a memory writer can complete successfully while making later tasks worse
+or carrying sensitive or stale information into a new decision.
+
+What this proves: the evaluation design made the memory change and its safety
+boundary visible for one declared workflow. It does not prove that memory
+improves every task or that a provider-specific memory implementation transfers
+to production.
+
 ## How to use this guide
 
 For a new build:
