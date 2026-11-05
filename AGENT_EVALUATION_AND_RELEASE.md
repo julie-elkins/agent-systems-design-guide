@@ -416,5 +416,6 @@ matched to their own scope.
 
 - [Agent Assurance Harness evaluation checklist](https://github.com/julie-elkins/agent-assurance-harness/blob/main/AGENT_EVALUATION_CHECKLIST.md)
 - [LLM Eval Validity](https://github.com/julie-elkins/llm-eval-validity)
-- [OpenAI Evals](https://github.com/openai/evals)
+- [Codex evaluation guidance](https://developers.openai.com/codex/use-cases/ai-app-evals)
+- [Promptfoo](https://github.com/promptfoo/promptfoo) — optional runner reference for Codex-generated evaluation suites
 - [Anthropic trustworthy agents](https://www.anthropic.com/research/trustworthy-agents)
