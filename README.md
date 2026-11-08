@@ -60,6 +60,11 @@ conflicting, or outside the approved boundary, it should refuse, block, or retur
 Record the decision, rejected alternative, reason, verification, cost if wrong, and
 decision owner.
 
+For data-backed agents, keep the vocabulary separate: [semantic context versus
+ontology](decisions/semantic-context-vs-ontology.md) explains why a useful
+metadata-backed context layer is not automatically a formal ontology or proof that
+an answer is correct.
+
 ## Pattern catalog
 
 ### 1. Evidence contract
