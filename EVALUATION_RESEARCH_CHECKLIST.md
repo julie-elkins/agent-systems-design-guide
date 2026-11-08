@@ -24,6 +24,10 @@ leaderboard, or reported result.
 | [Quantifying Variance in Evaluation Benchmarks](https://arxiv.org/abs/2406.10229) | Is the observed difference larger than variation from seeds, framing, sampling, or benchmark design? |
 | [AgentBench: Evaluating LLMs as Agents](https://arxiv.org/abs/2308.03688) | Does the evaluation cover more than one interactive environment or one narrow task family? |
 | [τ-bench](https://arxiv.org/abs/2406.12045) | Does the evaluation inspect user interaction, policy compliance, tool calls, final state, and repeated reliability? |
+| [Measuring AI Ability to Complete Long Software Tasks](https://arxiv.org/abs/2503.14499) | Is task duration measured against a human baseline at more than one reliability threshold? |
+| [A Live Benchmark and Automated Evaluation for Generative Research Synthesis](https://arxiv.org/abs/2508.20033) | Are synthesis quality, retrieval quality, and citation verifiability separated? |
+| [Do Agent Benchmarks Measure Capability?](https://arxiv.org/abs/2607.22368) | Does the protocol require the claimed capability, or can a shortcut satisfy the score? |
+| [Towards a Science of AI Agent Reliability](https://arxiv.org/abs/2602.16666) | Are consistency, robustness, predictability, and safety treated as distinct reliability properties? |
 
 ## 1. Claim and decision
 
@@ -105,6 +109,28 @@ underlying model.
 - [ ] Would adding more similar cases actually reduce the dominant uncertainty?
 - [ ] Are ceiling and floor effects visible?
 - [ ] Are results pooled only when the tasks and consequences justify pooling?
+
+### Long-horizon and protocol validity
+
+A **long-horizon evaluation** measures whether an agent can complete tasks of
+different durations at a declared reliability threshold. A **protocol-validity
+check** asks whether the task setup and scoring rule actually require the
+capability the benchmark claims to measure.
+
+- [ ] Is task duration anchored to a documented human-professional baseline?
+- [ ] Are at least two reliability thresholds reported, such as 50% and 80%,
+      instead of one headline success rate?
+- [ ] Are failures located within the trajectory, including planning, tool
+      choice, reasoning, abandonment, looping, recovery, and final-state
+      verification?
+- [ ] Are context quality, task decomposition, tools, permissions, and
+      environment failures controlled or reported separately from model
+      behavior?
+- [ ] Could an empty, partial, stale, or unsafe result satisfy the scoring rule?
+- [ ] Are negative controls designed to expose plausible shortcut passes?
+- [ ] If the benchmark uses simulated users or synthetic environments, is that
+      evidence kept separate from human-user or production evidence?
+- [ ] Does the report state which reliability surfaces remain unmeasured?
 
 ## 7. Reporting and release
 
