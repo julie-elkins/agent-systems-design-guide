@@ -333,6 +333,18 @@ current benchmark, judge, variance, and agent-interaction research to concrete
 design questions. Use it before expanding a benchmark or treating a score as
 evidence for a release decision.
 
+The [evaluation workstream crosswalk](EVALS_WORKSTREAM_CROSSWALK.md) maps
+failure discovery, trace review, labeling, judge validation, red teaming,
+regression, agent comparison, and production monitoring to the repositories,
+course, and research artifacts that implement or teach them. It also marks
+which lanes are future work rather than current production claims.
+
+The [evaluation team charter](EVALS_TEAM_CHARTER.md) adds responsibilities,
+intake, review cadence, escalation, release ownership, health metrics, and a
+gap register. It documents how the existing artifacts would operate together
+without claiming that a staffed production team or hosted evaluation platform
+already exists.
+
 For several eligible candidates, use the
 [constrained multi-objective evaluation decision](decisions/constrained-multi-objective-evaluation.md):
 gate safety, evidence completeness, held-out performance, and repeated-run
