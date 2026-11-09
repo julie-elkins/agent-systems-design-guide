@@ -38,6 +38,33 @@ records study-specific evidence.
 | [Towards a Science of AI Agent Reliability](https://arxiv.org/abs/2602.16666) | Are consistency, robustness, predictability, and safety treated as distinct reliability properties? |
 | [Stanford CS329A Part 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg&list=PLangBM27OtEA&index=9) | If the system generates its own tasks, critiques, or improvements, are diversity, verifier validity, curriculum difficulty, reward hacking, and resource tradeoffs measured separately? |
 
+## Use this checklist to assess or build an evaluation environment
+
+Use **assess mode** when reviewing an existing study, benchmark, evaluator, or
+platform:
+
+1. State the decision and evaluation layer.
+2. Complete each applicable item using the available study or environment
+   evidence.
+3. Record missing evidence, uncertainty, ownership, and the next action.
+4. Preserve the difference between observed, inferred, and unestablished claims.
+
+Use **build mode** before creating or changing the evaluation environment:
+
+1. Treat each applicable item as a design requirement.
+2. Define the case set, reference standard, evaluator, revision record,
+   uncertainty method, and maintenance owner before implementation.
+3. Add a positive path and a negative control that can expose a plausible
+   false pass.
+4. Define how model, provider, dependency, rubric, and data changes trigger
+   regression testing or reauthorization.
+5. Mark an item not applicable only with a documented reason.
+
+The smallest useful evaluation environment starts with a declared construct,
+decision, failure cost, versioned cases, reference outcome, validity check,
+uncertainty statement, and limitation boundary. Add platform features only when
+they support a declared decision or close a measured evidence gap.
+
 ## 1. Claim and decision
 
 - [ ] What decision will this evaluation support?
@@ -89,7 +116,46 @@ records study-specific evidence.
 - [ ] Is contamination or leakage from tuning into measurement addressed?
 - [ ] Does every result say what evidence it observed and what it did not observe?
 
-## 5. LLM-as-a-judge and human review
+## 5. Operational currency and change management
+
+Model behavior, provider APIs, pricing, and available models can change without
+notice. An **evergreen maintenance model** is the ownership, review cadence,
+compatibility record, and regression process that keeps guidance current without
+silently changing the meaning of an older result.
+
+- [ ] Are the model, provider, API, model revision, and run date recorded when
+      they affect the claim?
+- [ ] Are dependencies, runtime, prompts, tools, data, rubric, and evaluator
+      revisions pinned or otherwise reconstructable?
+- [ ] Are relevant provider changelogs and deprecation notices reviewed and
+      recorded?
+- [ ] Are compatibility checks and regression tests run after a model,
+      provider, API, dependency, prompt, tool, rubric, or data change?
+- [ ] Is there a documented way to interpret older studies after a relevant
+      model or provider change?
+- [ ] Is an owner and review cadence defined for current guidance and
+      compatibility?
+- [ ] Are pricing, latency, availability, and privacy changes kept separate
+      from measurement-quality claims?
+
+## 6. Independent evidence and external credibility
+
+Independent evidence means a person, team, reproduction, or published case
+study that did not simply reuse the system's own success claim. It is especially
+useful when evaluating whether a platform is credible beyond its author or
+original study. It is not required for every private exploratory experiment.
+
+- [ ] If platform credibility or broad adoption is claimed, is there evidence
+      from an independent user, reviewer, reproduction, or published case study?
+- [ ] Does the independent evidence use a declared scope, version, and decision
+      rather than an unbounded testimonial?
+- [ ] Are differences between the independent setup and the original setup
+      documented?
+- [ ] Are unresolved disagreements or failed reproductions visible?
+- [ ] If no independent evidence exists, is that limitation stated instead of
+      implied away?
+
+## 7. LLM-as-a-judge and human review
 
 An **LLM-as-a-judge** is one language model grading another model's output. It
 is a measurement component, not an oracle.
@@ -104,7 +170,7 @@ is a measurement component, not an oracle.
 - [ ] Is judge repeatability measured across repeated runs or samples?
 - [ ] Is human review retained for ambiguous, high-impact, or novel cases?
 
-## 6. Reliability and variance
+## 8. Reliability and variance
 
 **Evaluation reliability** means the result is sufficiently stable under the
 repeat conditions relevant to the intended claim. Stability for a fixed
@@ -164,7 +230,7 @@ should not be treated as reliable merely because its score increases.
       learning, weight updates, stale state, and contradictory state evaluated
       as distinct mechanisms?
 
-## 7. Reporting and release
+## 9. Reporting and release
 
 - [ ] Are accepted, refused, failed, skipped, unavailable, and not-evaluated
       cases included in the denominator policy?
