@@ -35,6 +35,11 @@ contains the operational checklist and synthetic controls. The
 [LLM Eval Validity](https://github.com/julie-elkins/llm-eval-validity) repository
 focuses on whether the measurement itself supports the decision.
 
+Use [Choosing an evaluation layer](EVALUATION_LAYERS.md) before selecting the
+method. It distinguishes research measurement, application or agent evaluation,
+production assurance, and monitoring so that a result is not used to support a
+broader decision than its evidence can carry.
+
 The design choice to keep the reasoning here and the operational controls in the
 harness is recorded in the [evaluation and release decision record](decisions/agent-evaluation-and-release.md).
 

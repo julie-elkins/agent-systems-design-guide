@@ -438,6 +438,12 @@ The current worked example is the
 The executable pilot remains in the
 [Agent Assurance Harness](https://github.com/julie-elkins/agent-assurance-harness).
 
+Before choosing a benchmark, evaluator, or release control, use
+[Choosing an evaluation layer](EVALUATION_LAYERS.md) to identify whether the
+decision is a research conclusion, an application or agent decision, a
+production release decision, or a monitoring response. The layers can compose,
+but their evidence and claim boundaries should not be collapsed into one score.
+
 For a hands-on external curriculum covering repository harnesses, session continuity,
 verification, loops, and graph workflows, see
 [Learn Harness Engineering](https://github.com/walkinglabs/learn-harness-engineering).
