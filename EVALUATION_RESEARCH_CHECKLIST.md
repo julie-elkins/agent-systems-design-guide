@@ -170,6 +170,37 @@ is a measurement component, not an oracle.
 - [ ] Is judge repeatability measured across repeated runs or samples?
 - [ ] Is human review retained for ambiguous, high-impact, or novel cases?
 
+### 7.1 Question-level rubric contract and score composition
+
+A **question contract** is a versioned set of explicit evaluator questions.
+Each question states the construct it measures, the evidence it may use, how
+its answer is represented, how much it contributes to the score, and whether a
+failure blocks the decision. The contract makes a judge score inspectable; it
+does not make the judge valid without calibration.
+
+- [ ] Does every question have a stable ID, a named construct, a question type,
+      an evidence reference, a weight, and a blocking rule?
+- [ ] Is the question type appropriate to the decision: binary for a real
+      boundary, choice for mutually exclusive behaviors, or ordered for
+      explicitly defined partial correctness?
+- [ ] Are answer levels and score boundaries observable rather than defined by
+      vague quality language?
+- [ ] Are weights and the aggregate threshold documented as policy, and are
+      blocking questions kept separate from informative questions?
+- [ ] Is the per-question answer, evidence, score, and status retained instead
+      of reporting only the aggregate?
+- [ ] Has the question set been audited for overlap so one failure is not
+      charged twice without a documented reason?
+- [ ] Has each important question been compared with independent human-reviewed
+      calibration cases, with agreement and disagreements reported separately
+      from the aggregate score?
+- [ ] Are calibration, development, regression, and held-out cases kept
+      separate?
+- [ ] Is the rubric or question set versioned, and does a change trigger
+      regression testing and a new evaluator-validity review?
+- [ ] Is the evaluated model prevented from silently rewriting the rubric or
+      question set that judges its output?
+
 ## 8. Reliability and variance
 
 **Evaluation reliability** means the result is sufficiently stable under the
