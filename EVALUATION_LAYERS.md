@@ -67,6 +67,13 @@ within a declared task and boundary. It examines more than the final answer:
 tools, permissions, intermediate state, retries, refusals, recovery, and the
 safe terminal state may all matter.
 
+The **system under test** is the complete workflow that supports the decision:
+model, harness or scaffolding (the prompts, tools, permissions, and
+orchestration around the model), repository and environment, evaluator, task
+outcome, trace completeness, retry behavior, and side effects. A harness change
+can change the measured result without changing the model, so these sources of
+variation should be recorded and interpreted separately.
+
 Use this layer when the decision concerns a workflow, agent, prompt, tool
 configuration, policy, or candidate implementation. Keep deterministic checks,
 semantic grading, behavioral outcomes, and trajectory evidence separate.
@@ -74,6 +81,20 @@ semantic grading, behavioral outcomes, and trajectory evidence separate.
 The evaluation may support a comparison or engineering decision, but it should
 not be promoted to a production claim without the additional release evidence
 required by the next layer.
+
+For repeated coding-agent runs, report **Pass@1**, meaning success on one
+attempt; **Pass@k**, meaning success on at least one of `k` attempts; **Pass^k**,
+meaning success on every one of `k` attempts; and **flip rate**, meaning the
+share of tasks whose outcome changes across attempts. Pass@k answers whether a
+retry budget can find a success. Pass^k answers whether the workflow is
+predictable without choosing the best run.
+
+Use a preservation-aware rule: an aggregate score increase is not an
+improvement when previously covered tasks regress and the regression is hidden,
+unexplained, or outside the accepted decision rule. Inspect failed attempts for
+unintended repository changes before calling a retry recovered, preserve
+newly exposed failures as regression cases, and keep any accepted tradeoff
+human-owned.
 
 ## Production assurance and release
 
