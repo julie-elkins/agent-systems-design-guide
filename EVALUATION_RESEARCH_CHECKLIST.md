@@ -37,6 +37,10 @@ records study-specific evidence.
 | [Do Agent Benchmarks Measure Capability?](https://arxiv.org/abs/2607.22368) | Does the protocol require the claimed capability, or can a shortcut satisfy the score? |
 | [Towards a Science of AI Agent Reliability](https://arxiv.org/abs/2602.16666) | Are consistency, robustness, predictability, and safety treated as distinct reliability properties? |
 | [Stanford CS329A Part 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg&list=PLangBM27OtEA&index=9) | If the system generates its own tasks, critiques, or improvements, are diversity, verifier validity, curriculum difficulty, reward hacking, and resource tradeoffs measured separately? |
+| [Harness Self-Evolution for Long-Horizon Terminal Agents](https://arxiv.org/abs/2610.27435) | Are harness changes and repeated-run behavior measured separately from the underlying model? |
+| [Trial by Trace: Benchmarking AI Agent Harnesses for Reliability and Failure Attribution](https://arxiv.org/abs/2610.32285) | Does the trace identify whether a failure came from the task, model, harness, tool, environment, or evaluator? |
+| [Beneath the Surface: What We Overlook When We Talk About Agent Evolution](https://arxiv.org/abs/2611.07624) | Can aggregate gains hide regressions, cost increases, or loss of previously demonstrated capability? |
+| [The Horizon Gap: Planning, Memory, Execution, Training, and Evaluation for Long-Horizon LLM Agents](https://arxiv.org/abs/2608.06663) | Are long-horizon planning, memory, execution, training, and evaluation claims kept distinct? |
 
 ## Use this checklist to assess or build an evaluation environment
 
@@ -218,6 +222,13 @@ underlying model.
 - [ ] Would adding more similar cases actually reduce the dominant uncertainty?
 - [ ] Are ceiling and floor effects visible?
 - [ ] Are results pooled only when the tasks and consequences justify pooling?
+- [ ] For repeated coding-agent runs, are Pass@1, Pass@k, Pass^k, and flip
+      rate defined and selected according to the decision?
+- [ ] Are failed attempts checked for unintended repository changes before a
+      retry is called recovered?
+- [ ] Does an aggregate improvement preserve previously covered tasks, or are
+      regressions visible, explained, and explicitly accepted by the decision
+      owner?
 
 ### Long-horizon and protocol validity
 

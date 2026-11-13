@@ -318,6 +318,21 @@ with the baseline explain what happened. A small score movement is not automatic
 real improvement; it must exceed the declared evaluation variation or be described as
 inconclusive.
 
+For repeated coding-agent runs, make the retry question explicit. **Pass@1**
+means success on one attempt; **Pass@k** means success on at least one of `k`
+independent attempts; **Pass^k** means success on every one of `k` attempts; and
+**flip rate** means the share of tasks whose outcome changes across attempts.
+Pass@k can describe whether a retry budget can find a success, while Pass^k
+describes whether the workflow is reliable without selecting the best attempt.
+Inspect failed attempts for unintended repository changes before calling a retry
+recovered.
+
+Apply a preservation rule to aggregate comparisons: a higher overall score is
+not an improvement when previously covered tasks regress and the regression is
+hidden, unexplained, or outside the accepted decision rule. Report task-level
+and high-risk-slice results, preserve newly exposed failures as regression
+cases, and make any accepted tradeoff an explicit human decision.
+
 ### Compare variants across separate dimensions
 
 An **A/B test** is a controlled comparison between a baseline and a candidate variant.
