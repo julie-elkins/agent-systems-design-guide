@@ -350,6 +350,14 @@ gap register. It documents how the existing artifacts would operate together
 without claiming that a staffed production team or hosted evaluation platform
 already exists.
 
+For the teaching and adoption layer, use
+[Teaching and Adoption Patterns](TEACHING_AND_ADOPTION_PATTERNS.md). The
+reusable strategy cards cover audience calibration, demonstration-first
+instruction, failure-driven labs, assessment and feedback, instructor
+calibration, and learner adoption evidence. The cards keep learner evidence
+separate from delivery signals and keep public teaching examples separate from
+private operational material.
+
 For several eligible candidates, use the
 [constrained multi-objective evaluation decision](decisions/constrained-multi-objective-evaluation.md):
 gate safety, evidence completeness, held-out performance, and repeated-run
