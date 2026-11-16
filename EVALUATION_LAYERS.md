@@ -127,6 +127,13 @@ may mean that no signal was collected, not that no failure occurred. A useful
 monitoring path therefore states its coverage, freshness, missing-data behavior,
 and escalation boundary.
 
+Human attention is also a monitoring resource. When choosing between an
+explicit feedback question and lower-friction observation, use the working
+heuristic `P(usable feedback) × expected change in the decision ÷ attention
+cost`. This helps prioritize evidence collection; it does not turn implicit
+feedback into ground truth, replace calibrated review, or authorize a release
+decision.
+
 ## Do not compare unlike layers as one score
 
 The most common category error is comparing a research workspace, an agent
