@@ -38,6 +38,27 @@ proof of learning or production impact.
 6. **Learner adoption evidence:** measure the target behavior, not only views,
    completions, attendance, or sentiment.
 
+## Attention-adjusted evidence value
+
+Human attention is part of the evidence budget. A useful working heuristic for
+feedback collection is:
+
+```text
+attention-adjusted evidence value =
+  P(usable feedback)
+  × expected change in the decision
+  ÷ attention cost
+```
+
+`P(usable feedback)` means the likelihood that the person will provide an
+interpretable answer. Expected change means the decision-relevant information
+that answer may add. Attention cost includes time, effort, context switching,
+and accessibility burden.
+
+This is a teaching heuristic, not a universal quality score. Implicit
+feedback—edits, retries, rejections, or abandonment—can guide review sampling,
+but it remains a proxy and must not silently become a pass/fail label.
+
 ## Boundaries
 
 Keep public teaching examples synthetic or metadata-only. Do not copy private

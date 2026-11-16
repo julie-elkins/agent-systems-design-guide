@@ -261,6 +261,31 @@ parallel research, independent verification, or a genuinely different context
 boundary. Re-baseline prompts, skills, tools, and subagents after a model upgrade
 instead of assuming that an older workaround still earns its maintenance cost.
 
+### Parallelism eligibility and write ownership
+
+Parallelism is eligible only when the delegated tasks can proceed independently
+without reading each other's unfinished work or competing to change the same
+state. A **read-only fan-out** means several workers inspect or analyze a shared
+input while leaving the source unchanged. A **single-writer rule** means one
+designated owner is responsible for proposing or applying a change to a shared
+artifact or external state.
+
+Before running parallel work, declare:
+
+- which tasks are independent and which depend on another task's result;
+- the artifact or state each worker may read and write;
+- the owner responsible for joining proposals and resolving conflicts;
+- the review or approval gate before a shared write;
+- the behavior when a worker is unavailable or returns conflicting evidence; and
+- the coordination, reconciliation, latency, and review cost being measured.
+
+Keep shared writes behind the owner and review gate even when the workers are
+trusted. More agents can accelerate investigation while moving the bottleneck to
+diff review, conflict resolution, or change approval. A simpler deterministic or
+single-agent baseline remains the comparison point; additional agents earn their
+maintenance cost only when the complete task improves after those costs are
+included.
+
 ## 7. Test multi-turn and stateful behavior
 
 Single-turn cases are insufficient when the agent must remember constraints, maintain
