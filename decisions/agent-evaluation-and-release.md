@@ -108,3 +108,67 @@ the evidence and unresolved uncertainty inspectable for the declared workflow.
 ### Decided by
 
 Julie Elkins, 2026-10-31.
+
+## Trust-gated autonomy and evidence custody
+
+### Problem
+
+An agent can appear effective while the evaluator is uncalibrated, the harness
+context is changing, or the executor can rewrite the record used to justify its
+own autonomy. A public incident index can also be mistaken for telemetry-backed
+evidence.
+
+### Decision
+
+Teach autonomy as trust-gated: expand permissions only after evaluator validity,
+authorization ownership, and evidence custody are explicit. Evaluate the complete
+harness—model, tools, permissions, policies, state, and evaluators—rather than the
+model alone. Name who holds the authoritative evidence and whether the executor can
+rewrite or delete it.
+
+### Instead of
+
+Use a composite trust score, treat a model score as sufficient, or create a public
+attack-harness index that implies live coverage from reported incidents.
+
+### Why
+
+The costly failure is not only an incorrect answer. It is an agent receiving more
+authority because a weak evaluator, stale record, or non-independent evidence source
+made the workflow look safe. A named gate makes the expansion decision reviewable and
+keeps public claims within the evidence actually collected.
+
+### Implementation
+
+- [Agent evaluation and release guide](../AGENT_EVALUATION_AND_RELEASE.md)
+- [Evaluation research checklist](../EVALUATION_RESEARCH_CHECKLIST.md)
+- [Agent Assurance Harness checklist](https://github.com/julie-elkins/agent-assurance-harness/blob/main/AGENT_EVALUATION_CHECKLIST.md)
+
+### Verification
+
+Check that the evaluation includes a calibrated evaluator, an independent false-pass
+control, explicit authorization ownership, an evidence holder, and a declared
+executor-mutability boundary. Keep a public incident report separate from
+telemetry-backed evidence.
+
+### Costs if wrong
+
+The added gate may slow autonomy expansion and require more review evidence. That cost
+is intentional: the alternative is granting consequential authority on evidence the
+executor or evaluator can silently invalidate.
+
+### What this does not prove
+
+These documentation patterns do not prove that an evaluator is valid for every task,
+that a public incident index is complete, or that a real system's evidence store is
+immutable. Those claims require separate system-specific evidence.
+
+### Decided by
+
+Julie Elkins, 2026-11-17.
+
+### Teaching link
+
+Use the `🧭 Take this forward` callout to ask learners to name the decision,
+authorization owner, independent evidence holder, false-pass check, and claim
+boundary before expanding an agent's autonomy.

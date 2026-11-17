@@ -170,6 +170,10 @@ is a measurement component, not an oracle.
 - [ ] Are pairwise and absolute scoring choices justified for this decision?
 - [ ] Are judge disagreements, abstentions, and invalid outputs visible?
 - [ ] Is reviewer calibration completed before the main review?
+- [ ] Is autonomy expansion blocked until evaluator calibration and an
+      independent false-pass check support the decision?
+- [ ] Are the authorization owner, evidence holder, and executor's ability to
+      rewrite or delete the evidence explicit?
 - [ ] Is adjudication defined for disagreements?
 - [ ] Is judge repeatability measured across repeated runs or samples?
 - [ ] Is human review retained for ambiguous, high-impact, or novel cases?

@@ -405,6 +405,42 @@ not prove that the candidate is globally optimal, that held-out cases represent
 all future traffic, or that a provider's automated optimization workflow is safe
 without human review.
 
+### Trust-gated autonomy and harness-level assurance
+
+A **trust gate** is a blocking condition that must pass before an agent receives
+more autonomy. Do not treat trust as one score that can be averaged away by
+faster delivery, higher adoption, or lower cost.
+
+Evaluate the **harness**, meaning the surrounding workflow of model, tools,
+permissions, policies, state, and evaluators, rather than evaluating the model
+alone. Before expanding autonomy, require:
+
+- calibration against human-reviewed cases;
+- an independent breaker that can expose a false pass;
+- explicit authorization ownership for consequential actions;
+- an evidence holder that is independent of the executor when the record matters;
+- a statement of whether the executor can rewrite or delete the evidence; and
+- a bounded response when the evaluator is unavailable, stale, or inconclusive.
+
+The release record should distinguish a public incident report from
+telemetry-backed evidence. A public index can identify a reported event or
+harness, but it cannot by itself prove frequency, causality, or current runtime
+behavior.
+
+> 🧭 **Take this forward**
+>
+> **Remember:** expand autonomy only as quickly as the evaluator and evidence
+> custody can support.
+>
+> **Try next:** name the decision, the authorization owner, the independent
+> evidence holder, and the check that can expose a false pass.
+>
+> **Inspect:** calibration, negative controls, evidence source and age, executor
+> mutability, and the resulting release decision.
+>
+> **Do not infer:** a strong model score or public incident index proves that the
+> complete harness is trustworthy in the current environment.
+
 ## 10. Make the release rule explicit
 
 Before inspecting the result, write the release contract:
