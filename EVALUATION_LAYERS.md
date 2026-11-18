@@ -115,6 +115,12 @@ completeness is not a release pass.
 The [Agent Assurance Harness checklist](https://github.com/julie-elkins/agent-assurance-harness/blob/main/AGENT_EVALUATION_CHECKLIST.md)
 is the operational companion for this layer.
 
+For a provider-neutral benchmark of interruption, recovery, handoff, and
+evidence support, use the
+[ESAC-Bench Recovery Track](https://github.com/julie-elkins/esac-bench/blob/main/docs/benchmark-spec.md#recovery-track).
+It is an offline synthetic benchmark control, not proof of production
+disaster-recovery capability.
+
 ## Monitoring and feedback
 
 Monitoring asks whether behavior, inputs, dependencies, or consequences changed
