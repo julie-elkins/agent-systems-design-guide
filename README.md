@@ -36,6 +36,11 @@ Before adding an agent, tool, server, workflow, or evaluation, state:
 If those answers are not written down, the build is not yet scoped. More code will
 not repair an unclear contract.
 
+For learners preparing to design or discuss evaluations, use the
+[evaluation interview crosswalk](EVALUATION_INTERVIEW_CROSSWALK.md). It maps common
+questions to decisions, evidence, and limitations without replacing the design
+review itself.
+
 ## Handling ambiguity
 
 When requirements or evidence are incomplete, start with the decision the system must
