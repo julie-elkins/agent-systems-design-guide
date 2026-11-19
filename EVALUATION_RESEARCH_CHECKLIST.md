@@ -24,6 +24,7 @@ records study-specific evidence.
 
 | Research source | Design question it adds |
 | --- | --- |
+| [Positive Alignment: Artificial Intelligence for Human Flourishing](https://arxiv.org/abs/2605.10310) | Does the evaluation separate harm avoidance from uncertainty handling, human agency, value conflict, pluralism, correction, and longer-term human outcomes? |
 | [Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825) and the Agentic Benchmark Checklist (ABC) | Could task setup or reward/scoring rules count an empty, incomplete, or unsafe result as success? |
 | [Agent Evaluation Reliability: More Tasks Won't (Always) Fix an Agent Leaderboard](https://arxiv.org/abs/2610.00651) | Is uncertainty caused by tasks, scaffolds, environments, or the model claim itself? |
 | [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685) | Have position, verbosity, self-preference, and judge-versus-human agreement been tested? |
@@ -78,6 +79,12 @@ they support a declared decision or close a measured evidence gap.
 - [ ] Is the unit a response, step, tool call, trajectory, session, or complete task?
 - [ ] Are correctness, safety, authorization, evidence completeness, latency, cost,
       and user outcome separate when they have different consequences?
+- [ ] If the evaluation makes an alignment or human-benefit claim, are harm
+      avoidance, uncertainty handling, human decision authority, value conflict,
+      pluralism, correction, and longer-term outcomes treated as separate
+      constructs rather than one score?
+- [ ] Are value-sensitive cases explicit about when the system should clarify,
+      defer, refuse, or escalate instead of silently assuming a user's values?
 
 ## 2. Task setup and success rules
 
@@ -202,6 +209,12 @@ does not make the judge valid without calibration.
 - [ ] Has each important question been compared with independent human-reviewed
       calibration cases, with agreement and disagreements reported separately
       from the aggregate score?
+- [ ] Has the rubric been audited against the decision for missing criteria,
+      construct misalignment, ungrounded verification, duplicate or bundled
+      criteria, and vague wording?
+- [ ] Is there a deliberate case that can pass the current rubric while failing
+      an important decision requirement, and does the audit block the aggregate
+      score until the gap is resolved or explicitly waived?
 - [ ] Are calibration, development, regression, and held-out cases kept
       separate?
 - [ ] Is the rubric or question set versioned, and does a change trigger

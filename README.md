@@ -368,6 +368,12 @@ For several eligible candidates, use the
 gate safety, evidence completeness, held-out performance, and repeated-run
 stability first, then expose the quality/cost/latency frontier for human review.
 
+For alignment or human-benefit claims, use the
+[positive-alignment claim-boundary decision](decisions/positive-alignment-claim-boundary.md):
+keep evidence grounding and safe handling separate from uncertainty,
+human authority, value conflict, pluralism, correction, and longer-term
+human outcomes.
+
 ### 19. Validity before scale: the Agentic Benchmark Checklist principle
 
 Treat **construct validity**—whether an evaluation measures the capability it
