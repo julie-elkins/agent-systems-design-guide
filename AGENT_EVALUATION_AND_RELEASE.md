@@ -107,6 +107,39 @@ Do not copy private prompts, raw traces, credentials, or protected content into 
 public test set. Use identifiers, bounded metadata, synthetic fixtures, or local-only
 artifacts behind an explicit boundary.
 
+### Domain evidence and source trust
+
+A data-backed workflow is not automatically differentiated or trustworthy
+because it can access more data. The domain evidence must be tied to a real
+decision and governed by an explicit source contract.
+
+For every domain source that can affect an evaluation or release decision,
+record:
+
+- the source owner, authorization, and permitted purpose;
+- provenance (where the evidence came from), revision or time window, and
+  freshness;
+- retention and access rules;
+- the original observation before any model transformation;
+- the derived interpretation, if one exists, and how it was validated;
+- the behavior for missing, stale, conflicting, or structurally unavailable
+  evidence; and
+- the decision that the evidence is allowed to change.
+
+Keep original observations separate from model-generated labels, summaries, or
+predictions. A model judge or generated status is an evaluator signal, not
+ground truth (a trusted reference for correctness), unless an appropriate
+reference decision and calibration evidence support that use. If required
+domain evidence is missing or invalid, return `not_evaluated` or
+`review_required`; do not convert access, plausibility, or model confidence into
+proof.
+
+This boundary also applies to claims of differentiation. A generic capability
+such as summarization or question generation is not made durable merely by
+placing it behind a new interface. The defensible contribution is the
+decision-specific evidence, its governance, and the demonstrated behavior when
+that evidence is incomplete or contradictory.
+
 ## 3. Capture the trace needed for the decision
 
 A **trace** is the structured record of the agent run. The required trace fields depend
