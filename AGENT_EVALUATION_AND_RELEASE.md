@@ -319,6 +319,12 @@ single-agent baseline remains the comparison point; additional agents earn their
 maintenance cost only when the complete task improves after those costs are
 included.
 
+For the broader control boundary, use the
+[orchestrator trust-boundary decision](decisions/orchestrator-trust-boundary.md).
+Model routing, handoffs, approval, state, retries, and external effects are
+separate evaluation surfaces. A fallback is a new evaluated configuration, not
+automatic recovery.
+
 ## 7. Test multi-turn and stateful behavior
 
 Single-turn cases are insufficient when the agent must remember constraints, maintain
