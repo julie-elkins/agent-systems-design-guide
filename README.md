@@ -191,7 +191,19 @@ Call it solo review; do not imply that automation is another human.
 
 Why: the absence of a reviewer must not become the absence of a release decision.
 
-### 12. Instructor calibration
+### 12. Orchestrator trust boundary
+
+Evaluate the workflow that routes models, delegates work, manages state, requests
+approval, retries actions, and joins evidence—not only the model response. The
+[orchestrator trust-boundary decision](decisions/orchestrator-trust-boundary.md)
+defines the evidence needed for routing, handoffs, approval, external effects,
+ambiguous results, fallback, memory, and evaluator scope.
+
+Why: a fallback model, fluent handoff, or local completion flag can hide an
+unresolved external action. The workflow must show whether the action was
+authorized, what state actually exists, and whether continuation is safe.
+
+### 13. Instructor calibration
 
 Use a fixed observer rubric to evaluate technical accuracy, hands-on execution,
 live debugging, audience adaptation, and safety behavior. Record stable signals,
@@ -201,7 +213,7 @@ than a passing score.
 Why: a train-the-trainer program cannot scale quality if readiness depends on
 one person's undocumented memory of what good looked like.
 
-### 13. Transport success is not task success
+### 14. Transport success is not task success
 
 Record transport status, semantic task outcome, retry count, and bounded usage as
 separate observations. A successful request may still return empty context, an
@@ -215,7 +227,7 @@ What this proves: the workflow recorded and evaluated a declared semantic outcom
 separately from transport success. It does not prove that the semantic outcome is
 correct outside the declared contract.
 
-### 14. Builder--breaker evaluation
+### 15. Builder--breaker evaluation
 
 Separate the component that proposes or changes a workflow from an independent breaker
 that tries to expose a false pass. Keep evaluator validity as its own evidence
@@ -228,7 +240,7 @@ different function.
 What this proves: the known degraded case was caught by the independent evaluation
 path. It does not prove that the breaker will find every future failure.
 
-### 15. Evidence-to-claim discipline
+### 16. Evidence-to-claim discipline
 
 Treat **epistemology** -- what can be justified from evidence -- as part of the system
 design. Separate three states:
@@ -254,7 +266,7 @@ What this proves: the review kept observations, scoped inferences, and unresolve
 claims separate. It does not prove hidden state, emergent behavior, or generalization
 outside the tested conditions.
 
-### 16. Decision reasoning as a teachable artifact
+### 17. Decision reasoning as a teachable artifact
 
 Make the reasoning behind a consequential design choice visible beside the code. A
 teachable decision record is not a diary and it is not a claim that one design is
@@ -281,7 +293,7 @@ and limits inspectable. It does not prove that the choice is optimal, that every
 official recommendation was followed, or that the result generalizes beyond its tested
 scope.
 
-### 17. Agent-readable repository lifecycle
+### 18. Agent-readable repository lifecycle
 
 When an agent works across sessions, make the repository answer five operational
 questions without relying on chat history:
@@ -310,7 +322,7 @@ that the parts exist. It does not prove that the harness improves agent behavior
 That stronger claim needs representative before-and-after sessions or controlled replay
 with the same task and explicit outcome measures.
 
-### 18. Evaluation layers and interaction scope
+### 19. Evaluation layers and interaction scope
 
 Evaluate an agent at more than one scope:
 
@@ -374,7 +386,7 @@ keep evidence grounding and safe handling separate from uncertainty,
 human authority, value conflict, pluralism, correction, and longer-term
 human outcomes.
 
-### 19. Validity before scale: the Agentic Benchmark Checklist principle
+### 20. Validity before scale: the Agentic Benchmark Checklist principle
 
 Treat **construct validity**—whether an evaluation measures the capability it
 claims to measure—as a gate before increasing benchmark size or declaring a
@@ -403,7 +415,7 @@ environment, and limitations before interpretation. It does not prove that
 the construct is complete, that the sample represents all users, or that a
 benchmark result transfers to production.
 
-### 20. Stateful memory evaluation
+### 21. Stateful memory evaluation
 
 Use [Stateful Memory Evaluation](STATEFUL_MEMORY_EVALUATION.md) when an agent
 reads or writes durable memory, session summaries, user preferences, or
