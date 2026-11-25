@@ -160,6 +160,35 @@ identifier-only or metadata-only evidence. A trace can prove what was observed i
 declared run; it does not automatically prove hidden state, generalization, or live
 production quality.
 
+### Trace use and benchmark publication boundary
+
+Trace retention and trace reuse are separate decisions. A trace is not
+automatically approved for training, fine-tuning, publication, or transfer to a
+different evaluation. Before reusing trace data, review its privacy, security,
+copyright, provider terms, consent, retention, and access boundaries.
+
+For public evaluation work:
+
+- keep raw prompts, outputs, tool payloads, personal data, secrets, and
+  provider-private material in the approved private system;
+- publish only synthetic, redacted, identifier-only, or metadata-only evidence
+  that supports the declared claim;
+- use verified successful traces as training candidates only after the reuse
+  decision is separately approved;
+- preserve failed or unsafe traces as local diagnostic evidence or bounded
+  regression cases rather than treating them as training examples by default;
+  and
+- separate public examples, development cases, regression cases, and
+  held-out cases so publishing the teaching path does not consume the
+  measurement set.
+
+When an agent evaluation includes a protocol checkpoint, report it separately
+from the domain outcome. **Protocol reach** means the run reached the step where
+the target behavior could be tested. **Domain success** means the target
+behavior then passed its substantive check. Combining them can make a harness
+failure look like a model failure or make an easy protocol path look like
+domain competence.
+
 ## 4. Evaluate at four complementary scopes
 
 The first three are the main evaluation layers. Trajectory is called out separately
