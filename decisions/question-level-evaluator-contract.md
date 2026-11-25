@@ -7,6 +7,15 @@ score. That makes partial correctness hard to represent, lets a blocking tool
 failure disappear inside a good final answer, and can charge the same failure
 twice when criteria overlap.
 
+## Rubric validity before score trust
+
+The question contract must be audited against the decision before its aggregate
+score is used. The audit looks for missing criteria, construct misalignment,
+ungrounded verification, duplicate or bundled criteria, and vague wording.
+Include a deliberate case that passes the current question set while failing a
+decision-relevant requirement. If the case passes, the audit must block the
+aggregate decision until the criterion is added or explicitly waived.
+
 ## Decision
 
 Teach and require a question-level evaluator contract for rubric-based
