@@ -284,6 +284,12 @@ as a new phase with its own limitations.
 
 ## 13. Write the paper as an evidence path
 
+Use the companion
+[Research Writing Guide](RESEARCH_WRITING_GUIDE.md) before drafting prose. It
+covers question-first study design, the question-word/experiment/clause
+research-question pattern, definitions, noun-based contributions, and the
+three-sentence claim discipline.
+
 A practical working-paper structure is:
 
 1. Abstract.

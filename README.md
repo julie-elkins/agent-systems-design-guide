@@ -41,6 +41,11 @@ For learners preparing to design or discuss evaluations, use the
 questions to decisions, evidence, and limitations without replacing the design
 review itself.
 
+For research projects, start with the
+[Research Writing Guide](RESEARCH_WRITING_GUIDE.md). It puts the research
+question before the artifact and shows how to connect the question, method,
+contributions, results, and claim boundary.
+
 ## Handling ambiguity
 
 When requirements or evidence are incomplete, start with the decision the system must
