@@ -70,6 +70,25 @@ decision, failure cost, versioned cases, reference outcome, validity check,
 uncertainty statement, and limitation boundary. Add platform features only when
 they support a declared decision or close a measured evidence gap.
 
+## Four questions before trusting a score
+
+Before treating an evaluation score as evidence, ask:
+
+1. **Did we understand the data?** Do we know which inputs, users, workflow
+   states, and failure modes the cases represent?
+2. **Did we specify the decision?** Are success, failure, forbidden behavior,
+   human handoff, and the cost of being wrong explicit?
+3. **Did we validate the measurement?** Are deterministic checks used where
+   possible, and has any semantic grader or LLM-as-a-judge—a language model
+   grading another model's output—been calibrated against human-reviewed cases?
+4. **Did the result generalize?** Does it hold across repeated runs, a frozen
+   regression set, and held-out cases that were not used for tuning?
+
+Public benchmarks can be useful screening gates or historical baselines. They
+should not be treated as complete evidence for a workflow or release decision
+unless the decision-specific controls, limitations, and transfer evidence are
+also present.
+
 ## 1. Claim and decision
 
 - [ ] What decision will this evaluation support?
